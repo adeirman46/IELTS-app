@@ -1,0 +1,8 @@
+
+{
+  "name": "IELTS Lingua",
+  "description": "An IELTS preparation application inspired by Duolingo's bite-sized learning approach. Tackle listening, reading, writing, and speaking questions one at a time in a fun, encouraging environment.",
+  "requestFramePermissions": [
+    "microphone"
+  ]
+}
