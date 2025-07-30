@@ -62,8 +62,10 @@ const WritingTask: React.FC<WritingTaskProps> = ({ question, onComplete }) => {
                       Sample Answer 
                       {question.sampleAnswerBand && <span className="text-brand-blue font-black"> (Band {question.sampleAnswerBand.toFixed(1)})</span>}
                   </h3>
-                  <div className="p-4 bg-yellow-50 border border-brand-yellow rounded-lg text-yellow-900 whitespace-pre-wrap text-sm h-72 overflow-y-auto">
-                      {question.sampleAnswer && <p className="mb-4">{question.sampleAnswer}</p>}
+                  <div className="p-4 bg-yellow-50 border border-brand-yellow rounded-lg text-yellow-900 text-sm h-72 overflow-y-auto">
+                      {question.sampleAnswer && question.sampleAnswer.split('\n\n').map((para, index) => (
+                          <p key={index} className="mb-4 last:mb-0">{para}</p>
+                      ))}
                       {question.examinerComment && (
                           <>
                               <h4 className="font-bold mt-4 pt-2 border-t border-yellow-200/50 text-yellow-800">Examiner's Comment:</h4>

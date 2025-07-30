@@ -1,37 +1,17 @@
-import { Book, Lesson, Section } from '../types';
-
-const createPlaceholderLessons = (bookId: number): Lesson[] => {
-    const LESSONS_PER_TEST = 6;
-    const NUM_TESTS = 4;
-    const lessons: Lesson[] = [];
-
-    const sectionSequence = [
-        { section: Section.LISTENING, title: 'Listening P1-2' },
-        { section: Section.LISTENING, title: 'Listening P3-4' },
-        { section: Section.READING, title: 'Reading P1' },
-        { section: Section.READING, title: 'Reading P2-3' },
-        { section: Section.WRITING, title: 'Writing T1-2' },
-        { section: Section.SPEAKING, title: 'Speaking P1-3' },
-    ];
-
-    for (let i = 0; i < NUM_TESTS; i++) {
-        const testNum = i + 1;
-        for (let j = 0; j < LESSONS_PER_TEST; j++) {
-            const lessonTemplate = sectionSequence[j];
-            lessons.push({
-                id: `b${bookId}-t${testNum}-${lessonTemplate.section.toLowerCase().charAt(0)}${j}`,
-                title: `Test ${testNum}: ${lessonTemplate.title}`,
-                section: lessonTemplate.section,
-                parts: [],
-            });
-        }
-    }
-    return lessons;
-};
+import { Book } from '../types';
+import { ielts17Test1Lessons } from './book17-1';
+import { ielts17Test2Lessons } from './book17-2';
+import { ielts17Test3Lessons } from './book17-3';
+import { ielts17Test4Lessons } from './book17-4';
 
 export const book17: Book = {
     id: 17,
-    title: 'IELTS Practice Book 17',
-    description: 'Practice fundamental skills and strategies for the IELTS test.',
-    lessons: createPlaceholderLessons(17),
+    title: 'IELTS 17 Academic',
+    description: 'Authentic Practice Tests from Cambridge. The perfect way to practise – EXACTLY like the real exam.',
+    lessons: [
+        ...ielts17Test1Lessons,
+        ...ielts17Test2Lessons,
+        ...ielts17Test3Lessons,
+        ...ielts17Test4Lessons,
+    ],
 };
